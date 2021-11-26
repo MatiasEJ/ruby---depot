@@ -2,7 +2,7 @@
 
 <h1>Personas</h1>
 
-<table>
+<table style="border: 1px solid black">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -14,18 +14,22 @@
   </thead>
 
   <tbody>
-    <% @personas.each do |persona| %>
+    <% @personas_x_mes.each do |mes, persons| %>
+    <td><strong> <%= mes.strftime("%B") %></strong></td>
+    <% persons.each do |per|%>
       <tr>
-        <td><%= persona.nombre %></td>
-        <td><%= persona.apellido %></td>
-        <td><%= persona.fecha_nac %></td>
-        <td><%= persona.dni %></td>
-        <td><%= link_to 'Show', persona %></td>
-        <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
-        <td><%= link_to 'Destroy', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= per.nombre %></td>
+        <td><%= per.apellido %></td>
+        <td><%= per.fecha_nac %></td>
+        <td><%= per.dni %></td>
+        <td><%= link_to 'Show', per %></td>
+        <td><%= link_to 'Edit', edit_persona_path(per) %></td>
+        <td><%= link_to 'Destroy', per, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
+  
 </table>
 
 <strong>promedio edades: <%= @promedio %></strong>
