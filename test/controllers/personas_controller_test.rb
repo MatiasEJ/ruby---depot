@@ -3,6 +3,12 @@ require 'test_helper'
 class PersonasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @persona = personas(:one)
+    @update = {
+      nombre: 'Juan',
+      apellido: 'Lopez',
+      fecha_nac: '2000-1-1',
+      dni: 10000001,
+    }
   end
 
   test "should get index" do
@@ -17,7 +23,7 @@ class PersonasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create persona" do
     assert_difference('Persona.count') do
-      post personas_url, params: { persona: { apellido: @persona.apellido, dni: @persona.dni, fecha_nac: @persona.fecha_nac, nombre: @persona.nombre } }
+      post personas_url, params: { persona: @update}
     end
 
     assert_redirected_to persona_url(Persona.last)
@@ -34,7 +40,7 @@ class PersonasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update persona" do
-    patch persona_url(@persona), params: { persona: { apellido: @persona.apellido, dni: @persona.dni, fecha_nac: @persona.fecha_nac, nombre: @persona.nombre } }
+    patch persona_url(@persona), params: { persona: @update}
     assert_redirected_to persona_url(@persona)
   end
 
