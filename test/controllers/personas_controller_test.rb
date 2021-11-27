@@ -14,6 +14,10 @@ class PersonasControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get personas_url
     assert_response :success
+    # Numero de columnas en la tabla
+    assert_select 'thead tr td', minimum: 7
+    assert_select '.entry', 2
+    assert_select 'h1', 'Personas (edad promedio: 31)'
   end
 
   test "should get new" do
