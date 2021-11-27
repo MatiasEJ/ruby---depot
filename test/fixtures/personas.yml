@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nombre: MyString
-  apellido: MyString
+martin:
+  nombre: Martin
+  apellido: Martinez
   fecha_nac: 2021-11-24
-  dni: 1
+  dni: 12123123
 
-two:
-  nombre: MyString
-  apellido: MyString
-  fecha_nac: 2021-11-24
-  dni: 1
+markos:
+  nombre: Markos
+  apellido: Marquez
+  fecha_nac: 1996-11-24
+  dni: 32321321

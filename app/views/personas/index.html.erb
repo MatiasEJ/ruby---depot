@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Personas</h1>
+<h1>Personas (edad promedio: <%= @promedio %>)</h1>
 
 <table style="border: 1px solid black">
   <thead>
@@ -12,27 +12,24 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @personas_x_mes.each do |mes, persons| %>
-    <td><strong> <%= mes.strftime("%B") %></strong></td>
-    <% persons.each do |per|%>
-      <tr>
-        <td><%= per.nombre %></td>
-        <td><%= per.apellido %></td>
-        <td><%= per.fecha_nac %></td>
-        <td><%= per.dni %></td>
-        <td><%= link_to 'Show', per %></td>
-        <td><%= link_to 'Edit', edit_persona_path(per) %></td>
-        <td><%= link_to 'Destroy', per, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <td><strong> <%= mes.strftime("%B") %></strong></td>
+      <% persons.each do |per|%>
+        <tr>
+          <td><%= per.nombre %></td>
+          <td><%= per.apellido %></td>
+          <td><%= per.fecha_nac %></td>
+          <td><%= per.dni %></td>
+          <td><%= link_to 'Show', per %></td>
+          <td><%= link_to 'Edit', edit_persona_path(per) %></td>
+          <td><%= link_to 'Destroy', per, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
     <% end %>
   </tbody>
-  
 </table>
 
-<strong>promedio edades: <%= @promedio %></strong>
 
 <br>
 

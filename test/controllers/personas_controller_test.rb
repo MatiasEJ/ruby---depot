@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PersonasControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @persona = personas(:one)
+    @persona = personas(:martin)
     @update = {
       nombre: 'Juan',
       apellido: 'Lopez',

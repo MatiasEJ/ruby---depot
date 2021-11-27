@@ -1,8 +1,5 @@
 require 'date'
 
-
-
-
 class PersonasController < ApplicationController
   before_action :set_persona, only: %i[ show edit update destroy ]
 

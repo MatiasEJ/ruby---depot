@@ -4,6 +4,8 @@ class PersonaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  fixtures :personas
+
   def np_valid()
     Persona.new(
       nombre: "juan",
@@ -24,7 +26,7 @@ class PersonaTest < ActiveSupport::TestCase
 
 
   test "persona nombre must not contain simbols" do
-    pers = np_valid()
+    pers = personas(:martin) 
     pers.nombre = "juan!"
     assert pers.invalid?
     assert_equal ["Contiene solo letras"], pers.errors[:nombre]
