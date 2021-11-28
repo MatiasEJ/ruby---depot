@@ -36,6 +36,12 @@ class PersonasControllerTest < ActionDispatch::IntegrationTest
   test "should show persona" do
     get persona_url(@persona)
     assert_response :success
+    assert_select '.personas p strong', 'Nombre:'
+    assert_select '.personas p strong', 'Apellido:'
+    assert_select '.personas p strong', 'Fecha nac:'
+    assert_select '.personas p strong', 'Edad'
+    assert_select '.personas p strong', 'Dni:'
+    assert_select 'p', 6
   end
 
   test "should get edit" do
