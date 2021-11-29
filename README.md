@@ -11,6 +11,7 @@ Según lo explicado en el libro nos gustaría que se cree un nuevo proyecto y qu
 * Queremos la lista de personas ordenadas por MES únicamente. (ej: todos los nacidos en enero y luego los nacidos en febrero,sin importar el año de nacimiento).
 * Entregar el proyecto comprimido en un ZIP.
 * El código debe estar bien indentado (Nosotros utilizamos 2 espacios para indentar, no con TAB)
+
 EJEMPLO:
 ```
   if n > 0

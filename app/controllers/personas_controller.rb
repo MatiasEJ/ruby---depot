@@ -5,20 +5,30 @@ class PersonasController < ApplicationController
 
   # GET /personas or /personas.json
   def index
+
     @personas = Persona.all
+
     @personas_x_mes = @personas.group_by { |t| t.fecha_nac.beginning_of_month}.reverse_each
+
     totalEdades = 0
+
     @personas.each do |per|
+
       totalEdades += age(per.fecha_nac)
+
     end 
+
     @promedio = totalEdades/@personas.length
 
   end
 
   # GET /personas/1 or /personas/1.json
   def show
-    dob = Persona.find(params[:id]).fecha_nac
-    @edad = age(dob)
+
+    fechaNac = Persona.find(params[:id]).fecha_nac
+
+    @edad = age(fechaNac)
+
   end
 
   # GET /personas/new
@@ -68,9 +78,13 @@ class PersonasController < ApplicationController
   end
 
   private
+
     def age(dob)
+
       now = Time.now.utc.to_date
+
       now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+
     end
 
     # Use callbacks to share common setup or constraints between actions.
