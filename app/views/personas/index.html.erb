@@ -17,7 +17,7 @@
   <tbody>
     <% cache @personas_x_mes do%>
       <% @personas_x_mes.each do |mes, persons| %>
-        <td><strong> <%= mes.strftime("%B") %></strong></td>
+        <td>Mes: <strong> <%= %w{dummy Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre}[mes.strftime("%m").to_i] %></strong></td>
         <% cache persons do%>
           <% persons.each do |per|%>
             <tr class="entry">
