@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+ruby_bad_format:
+  title: MyString
+  description: MyText
+  image_url: MyString.asd
+  price: 9.999999999999
+
+ruby:
+  title: Libro de Ruby
+  description: Un libro de Ruby
+  image_url: ruby.png
+  price: 9.99

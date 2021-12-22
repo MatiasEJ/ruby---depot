@@ -1,3 +1,5 @@
+require 'date'
+
 class Persona < ApplicationRecord
 
   validates :nombre,:apellido,:fecha_nac,:dni, presence: true
@@ -11,5 +13,14 @@ class Persona < ApplicationRecord
   uniqueness: true,
 
   format: { with: /\A\d+\z/, message: "Contiene solo numeros" } 
+ 
   
+  def age
+    dob = fecha_nac
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+
+
 end

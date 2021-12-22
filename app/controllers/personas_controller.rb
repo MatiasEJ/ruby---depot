@@ -1,4 +1,3 @@
-require 'date'
 
 class PersonasController < ApplicationController
   before_action :set_persona, only: %i[ show edit update destroy ]
@@ -14,7 +13,7 @@ class PersonasController < ApplicationController
 
     @personas.each do |per|
 
-      totalEdades += age(per.fecha_nac)
+      totalEdades += per.age
 
     end 
 
@@ -25,9 +24,8 @@ class PersonasController < ApplicationController
   # GET /personas/1 or /personas/1.json
   def show
 
-    fechaNac = Persona.find(params[:id]).fecha_nac
-
-    @edad = age(fechaNac)
+    persona = Persona.find(params[:id])
+    @edad = persona.age 
 
   end
 
@@ -79,13 +77,6 @@ class PersonasController < ApplicationController
 
   private
 
-    def age(dob)
-
-      now = Time.now.utc.to_date
-
-      now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
-
-    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_persona
