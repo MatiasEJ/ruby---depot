@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 martin:
+  id: 2
   nombre: Martin
   apellido: Martinez
   fecha_nac: 1984-11-24
-  dni: 12123123
+  dni: 30893787
 
 markos:
+  id: 3
   nombre: Markos
   apellido: Marquez
   fecha_nac: 1996-11-24
